@@ -2,59 +2,210 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>利用規約 - To Day Do</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Mlots | iOS Apps by Chikaarashi Rikito</title>
+    <meta name="description" content="Chikaarashi Rikito（Mlots）の iOS アプリ一覧。App Stocker、To Day Do。">
+    <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='1090%20-560%20610%20560'%3E%3Cpath%20d='M1395%20-315.8L1399.1%20-323.1L1400.2%20-332.4L1399.1%20-342.7L1395%20-353L1387.8%20-363.4L1378.5%20-371.6L1366.1%20-377.8L1351.6%20-382L1336.1%20-380.9L1319.6%20-376.8L1304.1%20-368.5L1289.6%20-357.2L1278.2%20-340.6L1271%20-322L1266.9%20-300.3L1268.9%20-277.6L1275.1%20-255.9L1287.5%20-234.2L1305.1%20-215.6L1326.8%20-201.1L1352.6%20-191.8L1380.5%20-187.7L1409.5%20-189.8L1438.4%20-199.1L1465.3%20-214.6L1488%20-237.3L1506.6%20-264.2L1519%20-296.2L1524.2%20-331.3L1521.1%20-366.5L1509.7%20-402.6L1491.1%20-434.7L1464.2%20-463.6L1431.2%20-486.3L1392.9%20-500.8L1351.6%20-508L1309.2%20-504.9L1266.9%20-492.5L1227.6%20-469.8L1193.5%20-439.8L1166.6%20-400.6L1149.1%20-357.2L1140.8%20-308.6L1142.9%20-259L1157.3%20-210.4L1181.1%20-165L1216.2%20-124.7L1259.6%20-93.7L1309.2%20-72L1364%20-60.6L1420.8%20-62.7L1476.6%20-77.1L1528.3%20-104L1573.8%20-142.2L1611%20-189.8L1636.8%20-245.6L1650.2%20-306.5L1649.2%20-370.6L1634.7%20-432.6L1606.8%20-491.5'%20fill='none'%20stroke='%23007AFF'%20stroke-width='72.3'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; background-color: #f9f9f9; }
-        .container { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #eee; }
-        h1 { font-size: 24px; border-bottom: 2px solid #007AFF; padding-bottom: 10px; color: #1c1c1e; }
-        h2 { font-size: 18px; margin-top: 30px; color: #1c1c1e; border-left: 4px solid #007AFF; padding-left: 10px; }
-        p, li { font-size: 15px; color: #444; }
-        ul { padding-left: 20px; }
-        .footer { margin-top: 50px; text-align: center; font-size: 12px; color: #8e8e93; }
+        :root {
+            --bg-color: #f2f2f7;
+            --card-bg: #ffffff;
+            --text-main: #1c1c1e;
+            --text-body: #3a3a3c;
+            --text-sub: #6c6c70;
+            --accent: #007aff;
+            --btn-main: #0a6cf0;
+            --btn-sub-bg: #f2f2f7;
+            --btn-sub-text: #0a6cf0;
+            --card-border: rgba(0, 0, 0, 0.06);
+            --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            --icon-border: rgba(0, 0, 0, 0.1);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #000000;
+                --card-bg: #1c1c1e;
+                --text-main: #f2f2f7;
+                --text-body: #d1d1d6;
+                --text-sub: #98989f;
+                --accent: #0a84ff;
+                --btn-main: #0a6cf0;
+                --btn-sub-bg: #2c2c2e;
+                --btn-sub-text: #64a8ff;
+                --card-border: rgba(255, 255, 255, 0.08);
+                --card-shadow: none;
+                --icon-border: rgba(255, 255, 255, 0.14);
+            }
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            -webkit-tap-highlight-color: transparent;
+            -webkit-text-size-adjust: 100%;
+        }
+        header {
+            padding: 36px 20px 18px;
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        h1 { margin: 0; line-height: 0; }
+        .logo { display: block; height: 34px; width: auto; }
+        .logo .letters { fill: var(--text-main); }
+        .logo .swirl { fill: none; stroke: var(--accent); stroke-width: 72.3; stroke-linecap: round; stroke-linejoin: round; }
+        .sub-header { color: var(--text-sub); font-size: 14px; margin: 12px 0 0; }
+
+        .container {
+            padding: 0 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 18px;
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--card-shadow);
+        }
+
+        .app-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .app-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            background: #e5e5ea;
+            object-fit: cover;
+            margin-right: 14px;
+            border: 0.5px solid var(--icon-border);
+            flex-shrink: 0;
+        }
+
+        .app-title-area h2 {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .app-category {
+            color: var(--text-sub);
+            font-size: 12px;
+            margin-top: 3px;
+        }
+
+        .app-description {
+            font-size: 14px;
+            color: var(--text-body);
+            margin: 0 0 16px;
+            line-height: 1.6;
+            overflow-wrap: break-word;
+            line-break: strict;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .btn:active { opacity: 0.7; }
+        .btn:focus-visible, footer a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+        .btn-main { background-color: var(--btn-main); color: #ffffff; }
+        .btn-sub { background-color: var(--btn-sub-bg); color: var(--btn-sub-text); }
+
+        footer {
+            text-align: center;
+            padding: 14px 20px 32px;
+            color: var(--text-sub);
+            font-size: 12px;
+        }
+
+        footer p { margin: 0; line-height: 1.7; }
+        footer a { color: var(--text-sub); text-decoration: underline; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>利用規約</h1>
-        <p>この利用規約（以下、「本規約」といいます。）は、Chikaarashi Rikito（Mlots）（以下、「当方」といいます。）が提供するスマートフォン用アプリケーション「To Day Do」（以下、「本アプリ」といいます。）の利用条件を定めるものです。ユーザーの皆さまには、本規約に従って本アプリをご利用いただきます。</p>
 
-        <h2>第1条（適用）</h2>
-        <p>本規約は、ユーザーと当方との間の本アプリの利用に関わる一切の関係に適用されるものとします。</p>
+<header>
+    <h1>
+        <svg class="logo" viewBox="18.0 -762.0 2539.0 813.3" role="img" aria-label="Mlots" xmlns="http://www.w3.org/2000/svg">
+            <path class="letters" d="M58 0L58 -482.3L190 -482.3L190 0ZM372.3 0L372.3 -285Q372.3 -327.3 346.5 -351.2Q320.7 -375 282.3 -375Q256 -375 235.3 -364Q214.7 -353 202.3 -333.3Q190 -313.7 190 -285.3L138.3 -308.7Q138.3 -365.3 162.8 -406.3Q187.3 -447.3 229.7 -469.8Q272 -492.3 325 -492.3Q375.7 -492.3 416.2 -469.7Q456.7 -447 480.5 -406.3Q504.3 -365.7 504.3 -309.3L504.3 0ZM686.7 0L686.7 -285Q686.7 -327.3 660.8 -351.2Q635 -375 597 -375Q570.7 -375 549.8 -364Q529 -353 516.7 -333.3Q504.3 -313.7 504.3 -285.3L428.7 -299.3Q431 -359 458.2 -401.8Q485.3 -444.7 529.7 -468.5Q574 -492.3 628.7 -492.3Q683.3 -492.3 726 -469.3Q768.7 -446.3 793.8 -404Q819 -361.7 819 -302.3L819 0ZM895 0L895 -722L1027 -722L1027 0ZM1863.3 0L1863.3 -682.7L1995.3 -682.7L1995.3 0ZM1751 -368.3L1751 -482.3L2107.7 -482.3L2107.7 -368.3ZM2320 11.3Q2278 11.3 2238.5 0.5Q2199 -10.3 2165.3 -30.5Q2131.7 -50.7 2107.7 -77.7L2185 -155.7Q2209.7 -127.7 2243 -112.8Q2276.3 -98 2316.3 -98Q2348.3 -98 2365.7 -108.2Q2383 -118.3 2383 -136.3Q2383 -157 2365.2 -168.2Q2347.3 -179.3 2319.7 -187.5Q2292 -195.7 2261.2 -204.8Q2230.3 -214 2202.7 -229.7Q2175 -245.3 2157.5 -273Q2140 -300.7 2140 -344.3Q2140 -390 2163 -423.5Q2186 -457 2227.8 -476Q2269.7 -495 2326.7 -495Q2386.7 -495 2436.2 -474.2Q2485.7 -453.3 2517 -412.3L2439.7 -334.3Q2417.7 -361 2388.8 -373Q2360 -385 2329.7 -385Q2299.3 -385 2283.8 -375.5Q2268.3 -366 2268.3 -348.7Q2268.3 -330.7 2285.7 -320.3Q2303 -310 2330.8 -302.3Q2358.7 -294.7 2389.3 -284.8Q2420 -275 2447.7 -258.3Q2475.3 -241.7 2492.8 -213.7Q2510.3 -185.7 2510.3 -140.3Q2510.3 -70.7 2458.8 -29.7Q2407.3 11.3 2320 11.3Z"/>
+            <path class="swirl" d="M1395 -315.8L1399.1 -323.1L1400.2 -332.4L1399.1 -342.7L1395 -353L1387.8 -363.4L1378.5 -371.6L1366.1 -377.8L1351.6 -382L1336.1 -380.9L1319.6 -376.8L1304.1 -368.5L1289.6 -357.2L1278.2 -340.6L1271 -322L1266.9 -300.3L1268.9 -277.6L1275.1 -255.9L1287.5 -234.2L1305.1 -215.6L1326.8 -201.1L1352.6 -191.8L1380.5 -187.7L1409.5 -189.8L1438.4 -199.1L1465.3 -214.6L1488 -237.3L1506.6 -264.2L1519 -296.2L1524.2 -331.3L1521.1 -366.5L1509.7 -402.6L1491.1 -434.7L1464.2 -463.6L1431.2 -486.3L1392.9 -500.8L1351.6 -508L1309.2 -504.9L1266.9 -492.5L1227.6 -469.8L1193.5 -439.8L1166.6 -400.6L1149.1 -357.2L1140.8 -308.6L1142.9 -259L1157.3 -210.4L1181.1 -165L1216.2 -124.7L1259.6 -93.7L1309.2 -72L1364 -60.6L1420.8 -62.7L1476.6 -77.1L1528.3 -104L1573.8 -142.2L1611 -189.8L1636.8 -245.6L1650.2 -306.5L1649.2 -370.6L1634.7 -432.6L1606.8 -491.5"/>
+        </svg>
+    </h1>
+    <p class="sub-header">iOS Application Projects by Chikaarashi Rikito</p>
+</header>
 
-        <h2>第2条（サービスの提供目的）</h2>
-        <p>本アプリは、ユーザーが「今日」行うべきタスクをシンプルに管理し、設定された時刻にタスクを自動消去（リセット）することで、毎日を新鮮な気持ちで開始することを目的としたツールです。</p>
-
-        <h2>第3条（免責事項）</h2>
-        <ul>
-            <li>本アプリは、設定されたリセット時刻に基づき、タスクデータを自動的に消去します。消去されたデータの復元はできません。ユーザーは、自身の責任においてリセット時刻を設定し、必要な情報の管理を行うものとします。</li>
-            <li>本アプリの利用、または利用できなかったことによりユーザーに生じた損害（データの消失、端末の故障、時間の損失等）について、当方は一切の責任を負いません。</li>
-            <li>当方は、本アプリの正確性や特定の目的への適合性について、いかなる保証も行いません。</li>
-            <li>当方は、予告なく本アプリの仕様変更、提供の中止、または終了を行うことができるものとします。</li>
-        </ul>
-
-        <h2>第4条（禁止事項）</h2>
-        <p>ユーザーは、本アプリの利用にあたり、以下の行為をしてはなりません。</p>
-        <ul>
-            <li>本アプリのシステム等に過度な負荷をかける行為。</li>
-            <li>本アプリのリバースエンジニアリング、逆コンパイル、または逆アセンブル等。</li>
-            <li>その他、当方が不適切と判断する行為。</li>
-        </ul>
-
-        <h2>第5条（著作権・知的財産権）</h2>
-        <p>本アプリに関する著作権、商標権、その他一切の知的財産権は、当方または正当な権利を有する第三者に帰属します。</p>
-
-        <h2>第6条（利用規約の変更）</h2>
-        <p>当方は、必要と判断した場合には、ユーザーに通知することなくいつでも本規約を変更することができるものとします。変更後、ユーザーが本アプリを利用した場合には、変更後の規約に同意したものとみなします。</p>
-
-        <h2>第7条（お問い合わせ窓口）</h2>
-        <p>本規約に関するお問い合わせは、下記の窓口までお願いいたします。<br>
-        開発者名：Chikaarashi Rikito（Mlots）<br>
-        メールアドレス：mlots.tokyo@gmail.com</p>
-
-        <div class="footer">
-            © 2026 Chikaarashi Rikito (Mlots)
+<main class="container">
+    <section class="app-card" aria-labelledby="app-stocker">
+        <div class="app-header">
+            <img src="icon-stocker.png" alt="" class="app-icon" width="64" height="64" onerror="this.style.backgroundColor='#007AFF'">
+            <div class="app-title-area">
+                <h2 id="app-stocker">App Stocker</h2>
+                <div class="app-category">ユーティリティ</div>
+            </div>
         </div>
-    </div>
+        <p class="app-description">
+            アプリ専用の「欲しいものリスト」です。App Storeのリンクをコピーして貼り付けるだけで、自分だけの状態を維持できます。保存したアプリの価格変動を検知して、値下げ時は通知でお知らせします。
+        </p>
+        <div class="action-buttons">
+            <a href="https://apps.apple.com/jp/app/id6759819675" target="_blank" rel="noopener" class="btn btn-main">App Store</a>
+            <a href="https://mlots-tokyo.github.io/app-stocker-docs/privacy.html" class="btn btn-sub">Privacy Policy</a>
+        </div>
+    </section>
+
+    <section class="app-card" aria-labelledby="to-day-do">
+        <div class="app-header">
+            <img src="icon-todaydo.png" alt="" class="app-icon" width="64" height="64" onerror="this.style.backgroundColor='#34C759'">
+            <div class="app-title-area">
+                <h2 id="to-day-do">To Day Do</h2>
+                <div class="app-category">仕事効率化</div>
+            </div>
+        </div>
+        <p class="app-description">
+            「毎日ゼロから始める」ToDoリスト。毎日決まった時間にタスクが自動消去されるため、昨日までのやり残しに縛られず、最高の「今日」をデザインしましょう。
+        </p>
+        <div class="action-buttons">
+            <a href="https://apps.apple.com/jp/app/id6759670393" target="_blank" rel="noopener" class="btn btn-main">App Store</a>
+            <a href="https://mlots-tokyo.github.io/to-day-do-docs/privacy.html" class="btn btn-sub">Privacy Policy</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>
+        Contact: <a href="mailto:mlots.tokyo@gmail.com">mlots.tokyo@gmail.com</a><br>
+        &copy; 2026 Chikaarashi Rikito (Mlots)
+    </p>
+</footer>
+
 </body>
 </html>
